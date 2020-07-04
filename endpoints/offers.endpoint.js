@@ -6,7 +6,7 @@ module.exports.getOffersEndpoint = (domainProtocol, domainAddress, accessToken) 
     },
     method: 'GET',
     uri: domainProtocol + domainAddress + '/offers/listing',
-    qs: { phrase: 'Niv-Mizzet' },
+    qs: { phrase: 'Narset of the Ancient Way' },
     json: true
   }
 }
