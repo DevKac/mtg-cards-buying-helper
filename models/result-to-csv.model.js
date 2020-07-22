@@ -1,13 +1,14 @@
 const ObjectsToCsv = require('objects-to-csv');
 
 class ResultToCsv {
-  constructor(sellers, results) {
+  constructor(sellers, results, domainProtocol, domainAddress) {
     if (!sellers) {
       throw new Error('Sellers cannot be null!');
     }
     if (!results) {
       throw new Error('Results cannot be null!');
     }
+    this.domainAddress = domainProtocol + domainAddress;
     this.result = this.parseResult(sellers, results);
   }
 
@@ -56,9 +57,27 @@ class ResultToCsv {
         }
         return value.sellerId === seller;
       });
-      resultItem[seller] = matchingValue ? matchingValue.price : '';
+      resultItem[seller] = matchingValue ? this.generateCellHyperlinkValue(matchingValue) : '';
     });
     return resultItem;
+  }
+
+  generateCellHyperlinkValue(cellValue) {
+    if (!cellValue) {
+      return '';
+    }
+
+    const label = cellValue.price + ' ' + cellValue.currency;
+    const hyperlink = this.domainAddress + '/oferta/' + this.parseOfferNameAndIdIntoUrl(cellValue.offerId, cellValue.offerName);
+    return '=HYPERLINK(\"' + hyperlink + '\";\"' + label + '\")';
+  }
+
+  parseOfferNameAndIdIntoUrl(id, name) {
+    if (!id || !name) {
+      return null;
+    }
+    const parsedName = name.replace(/[^a-zA-Z ]/g, "").replace(/\s+/g, '-').toLowerCase();
+    return parsedName + '-' + id;
   }
 
   async saveCsvFile(filename) {

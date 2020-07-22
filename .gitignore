@@ -39,3 +39,5 @@ Thumbs.db
 
 # Project files
 /config/config.json
+/config/card-list.json
+/logs

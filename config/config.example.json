@@ -2,15 +2,19 @@
   "dev": {
     "tokenLogin": "Development Token Login",
     "tokenPass": "Development Token Password",
+    "apiProtocol": "https://",
+    "apiAuthAddress": "allegro.pl.allegrosandbox.pl",
+    "apiAddress": "api.allegro.pl.allegrosandbox.pl",
     "domainProtocol": "https://",
-    "domainAuthAddress": "allegro.pl.allegrosandbox.pl",
-    "domainAddress": "api.allegro.pl.allegrosandbox.pl"
+    "domainAddress": "allegro.pl.allegrosandbox.pl"
   },
   "prod": {
     "tokenLogin": "Production Token Login",
     "tokenPass": "Production Token Password",
+    "apiProtocol": "https://",
+    "apiAuthAddress": "allegro.pl",
+    "apiAddress": "api.allegro.pl",
     "domainProtocol": "https://",
-    "domainAuthAddress": "allegro.pl",
-    "domainAddress": "api.allegro.pl"
+    "domainAddress": "allegro.pl"
   }
 }

@@ -1,4 +1,4 @@
-module.exports.getOffersEndpoint = (domainProtocol, domainAddress, accessToken) => {
+module.exports.getOffersEndpoint = (domainProtocol, domainAddress, accessToken, searchedPhrase) => {
   return {
     headers: {
       'Authorization': 'Bearer ' + accessToken,
@@ -6,7 +6,7 @@ module.exports.getOffersEndpoint = (domainProtocol, domainAddress, accessToken) 
     },
     method: 'GET',
     uri: domainProtocol + domainAddress + '/offers/listing',
-    qs: { phrase: 'Narset of the Ancient Way' },
+    qs: { phrase: searchedPhrase },
     json: true
   }
 }

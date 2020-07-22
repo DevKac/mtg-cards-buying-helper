@@ -57,8 +57,10 @@ class ResultFromResponses {
     }
     return {
       offerId: offer.id,
+      offerName: offer.name,
       sellerId: offer.seller.id,
-      price: offer.sellingMode.price.amount
+      price: offer.sellingMode.price.amount,
+      currency: offer.sellingMode.price.currency
     }
   }
 
